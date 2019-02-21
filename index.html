@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+  <meta charset="UTF-8">
+  <title>Recortador de Audio 2.0</title>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <div id="container">
+
+      <div id="image">
+        <h1>Recortador de Audio de Igna 2.0</h1>
+      </div>
+
+      <div id="player">
+        <i class="fa fa-backward" aria-hidden="true" id="back"></i>
+        <div id="play-pause"><i class="fa fa-play" aria-hidden="true" id="play"></i></div>
+        <i class="fa fa-forward" aria-hidden="true" id="forward"></i>
+      </div>
+
+      <div id="download">
+        <i class="fa fa-download" aria-hidden="true" id="descargar"></i>
+      </div>
+
+      <div id="tools">
+        <i class="fa fa-cut" aria-hidden="true" id="cut"></i>
+        <i class="fa fa-save" aria-hidden="true" id="save"></i>
+      </div>
+
+      <div id="audios">
+
+        <div class="audio">
+          <audio controls id="audio">
+            <source id="source" src="" type="audio/mpeg">
+          </audio>
+        </div>
+
+        <div id="textonumeros">
+          <p>Desfasaje:</p>
+          <p>Inicio Corte:</p>
+          <p>Final Corte:</p>
+        </div>
+
+        <div id="numerostiempo">
+          <p id="desfasaje">0</p>
+          <p id="contadorInicio"></p>
+          <p id="contadorFinal"></p>
+        </div>
+
+        <div id="etiqueta">
+          <p id="etiq">Etiqueta: </p>
+        </div>
+
+        <div id="formulario">
+          <form id="formulario" action="index.html" method="post">
+            <input type="text" id="etiquetaformulario" value="">
+          </form>
+        </div>
+        <input type="file" id="archivo" name="Examinar" />
+        <div class="descargarAarchivo">
+          <a id="descargarArchivo">Descargar</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
