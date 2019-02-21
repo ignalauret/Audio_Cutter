@@ -14,7 +14,7 @@
     <div id="container">
 
       <div id="image">
-        <h1>Recortador de Audio de Igna 2.0</h1>
+        <h1>Audio Cutter 2.0</h1>
       </div>
 
       <div id="player">
@@ -23,8 +23,8 @@
         <i class="fa fa-forward" aria-hidden="true" id="forward"></i>
       </div>
 
-      <div id="download">
-        <i class="fa fa-download" aria-hidden="true" id="descargar"></i>
+      <div id="upload_div">
+        <i class="fa fa-download" aria-hidden="true" id="upload_i"></i>
       </div>
 
       <div id="tools">
@@ -40,30 +40,30 @@
           </audio>
         </div>
 
-        <div id="textonumeros">
-          <p>Desfasaje:</p>
-          <p>Inicio Corte:</p>
-          <p>Final Corte:</p>
+        <div id="numberText">
+          <p>Shift:</p>
+          <p>Start Cut:</p>
+          <p>End Cut:</p>
         </div>
 
-        <div id="numerostiempo">
-          <p id="desfasaje">0</p>
-          <p id="contadorInicio"></p>
-          <p id="contadorFinal"></p>
+        <div id="timeNumbers">
+          <p id="shift">0</p>
+          <p id="startCounter">0</p>
+          <p id="endCounter">0</p>
         </div>
 
-        <div id="etiqueta">
-          <p id="etiq">Etiqueta: </p>
+        <div id="label_div">
+          <p id="label_p">Label: </p>
         </div>
 
-        <div id="formulario">
-          <form id="formulario" action="index.html" method="post">
-            <input type="text" id="etiquetaformulario" value="">
+        <div id="form_div">
+          <form id="form" action="index.html" method="post">
+            <input type="text" id="formLabel" value="">
           </form>
         </div>
-        <input type="file" id="archivo" name="Examinar" />
-        <div class="descargarAarchivo">
-          <a id="descargarArchivo">Descargar</a>
+        <input type="file" id="file" name="Choose_File" />
+        <div id="downloadFile_div">
+          <a id="downloadFile_a">Download</a>
         </div>
 
       </div>

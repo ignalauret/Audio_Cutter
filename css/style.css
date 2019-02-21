@@ -1,63 +1,3 @@
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    top: -180px;
-  }
-  100% {
-    opacity: 1;
-    top: -160px;
-  }
-}
-@-moz-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    top: -180px;
-  }
-  100% {
-    opacity: 1;
-    top: -160px;
-  }
-}
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    top: -180px;
-  }
-  100% {
-    opacity: 1;
-    top: -160px;
-  }
-}
-@-webkit-keyframes fadeOutUp {
-  0% {
-    opacity: 1;
-    top: -160px;
-  }
-  100% {
-    opacity: 0;
-    top: -180px;
-  }
-}
-@-moz-keyframes fadeOutUp {
-  0% {
-    opacity: 1;
-    top: -160px;
-  }
-  100% {
-    opacity: 0;
-    top: -180px;
-  }
-}
-@keyframes fadeOutUp {
-  0% {
-    opacity: 1;
-    top: -160px;
-  }
-  100% {
-    opacity: 0;
-    top: -180px;
-  }
-}
 * {
   margin: 0;
   padding: 0;
@@ -69,6 +9,7 @@
   font-family: "proxima-nova", sans-serif;
   color: #141414;
 }
+
 *:focus {
   outline: none;
 }
@@ -80,14 +21,14 @@ body {
 #wrapper {
   position: absolute;
   top: 50%;
-  margin-top: -220px;
+  margin-top: -270px;
   left: 0;
   width: 100%;
 }
 
 #container {
   width: 480px;
-  height: 440px;
+  height: 480px;
   margin: 0 auto;
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.7);
   -webkit-border-radius: 5px;
@@ -98,6 +39,7 @@ body {
   position: relative;
   background-color: #141414;
 }
+
 #container #image {
   width: 100%;
   height: 220px;
@@ -108,6 +50,7 @@ body {
   background-save: no-save;
   position: relative;
 }
+
 #container #image::before {
   content: "";
   width: 100%;
@@ -122,6 +65,7 @@ body {
   background: linear-gradient(to bottom, rgba(20, 20, 20, 0) 21%, rgba(20, 20, 20, 0.27) 42%, #141414 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
+
 #container #image h1 {
   font-size: 1em;
   text-transform: uppercase;
@@ -129,17 +73,20 @@ body {
   padding: 15px 0 2px 15px;
   color: #FFF;
 }
+
 #container #image p {
   font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding-left: 15px;
 }
+
 #container #player {
   position: absolute;
   top: 185px;
   left: 160px;
 }
+
 #container #player .fa-backward, #container #player .fa-forward {
   float: left;
   font-size: 1.8em;
@@ -149,9 +96,11 @@ body {
   -webkit-filter: drop-shadow(0px 2px 5px #000);
   filter: drop-shadow(0px 2px 5px #000);
 }
+
 #container #player .fa-backward:hover, #container #player .fa-forward:hover {
   color: #4C4C4C;
 }
+
 #container #player #play-pause {
   float: left;
   font-size: 2em;
@@ -170,6 +119,7 @@ body {
   -moz-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
+
 #container #player #play-pause #play {
   width: 55px;
   height: 55px;
@@ -181,22 +131,24 @@ body {
   color: #019875;
   padding: 7px 0 0 5px;
 }
+
 #container #player #play-pause #play:hover {
   border: 5px solid #4C4C4C;
   color: #4C4C4C;
 }
-#container #descargar, #container #download {
+
+#container #upload_div,#upload_i{
   width: 20px;
   position: absolute;
   color: #019875;
-  bottom: 104px;
+  bottom: 125px;
   left: 13px;
   cursor: pointer;
 }
 
 #container #tools {
   position: absolute;
-  bottom: 210px;
+  bottom: 250px;
   right: 15px;
 }
 #container #tools #cut, #container #tools #save {
@@ -237,30 +189,60 @@ body {
   width: 100%;
 }
 
-#container #textonumeros {
+#container #numberText {
   float: left;
-  margin-top: 15px;
+  text-align:right;
 }
 
-#container #numerostiempo {
+#container #numberText *{
+  padding-top: 20px;
+    font-size: 1.1em;
+}
+
+#container #timeNumbers {
   float: left;
   width: 20%;
-  margin-top: 15px;
 }
 
-#container #etiqueta, #container #etiquetaformulario {
+#container #timeNumbers *{
+  padding-top: 20px;
+  font-size: 1.1em;
+}
+
+#container #label_div {
   float: left;
   margin-top: 20px;
 }
 
-#container #formulario{
+#container #form{
+  float: left;
+  margin-top: 24px;
+}
+
+#container #label_div *{
+  font-size: 1.2em;
+}
+
+#container #form_div{
   float: left;
   margin-left: 4px;
   margin-top: 2px;
 }
-#container #archivo{
-  margin-top: 10px;
+
+#container #file{
+  margin-top: 20px;
   margin-left: 15px;
   color: #FFF;
-  font-size: 0.8em;
+  font-size: 0.9em;
+}
+
+#container #downloadFile_div {
+  margin-top: 20px;
+  margin-right: 20px;
+  text-align: right;
+}
+
+#container #downloadFile_a{
+  font-size:1.5em;
+  color: #019875;
 }

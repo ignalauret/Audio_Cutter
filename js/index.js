@@ -1,68 +1,77 @@
 (function(){
+//Buttons
+var playButton = document.getElementById("play");
+var startCutButton = document.getElementById("cut");
+var saveButton = document.getElementById("save");
+var uploadButton = document.getElementById("upload_i");
+var backwardButton = document.getElementById("back");
+var forwardButton = document.getElementById("forward");
+//Layout
+var timer = document.getElementById("startCounter");
+var timer2 = document.getElementById("endCounter");
+var shift = document.getElementById("shift");
 var audio = document.getElementById("audio");
-var timer = document.getElementById("contadorInicio");
-var timer2 = document.getElementById("contadorFinal");
-var desfasaje = document.getElementById("desfasaje");
-var botonplay = document.getElementById("play");
-var botonInicio = document.getElementById("cut");
-var botonTerminado = document.getElementById("save");
-var retroceder = document.getElementById("back");
-var avanzar = document.getElementById("forward");
-var etiqueta = document.getElementById("etiquetaformulario");
-var flagCorte = 0;
-var desfasajevar = 0;
-var contenidoDeArchivo = "Etiqueta InicioCorte FinalCorte \n"
-var elem = document.getElementById("descargarArchivo");
-elem.download = "archivo.txt";
-var cargar = document.getElementById('descargar');
-var archivo = document.getElementById('archivo');
-var source = document.getElementById('source');
+//Inputs
+var label = document.getElementById("formLabel");
+var elem = document.getElementById("downloadFile_a");
+var file = document.getElementById("file");
+var source = document.getElementById("source");
+//Scripting Variables
+var fileContent = "Label StartCut EndCut \n";
+elem.download = "file.txt";
+var cutFlag = 0;
+var shiftTime = 0;
 
-var actualizarTimer = function(){
-  var tiempo = audio.currentTime;
-  timer2.textContent = tiempo;
-  if(!flagCorte){
-    timer.textContent = tiempo;
+//Loop Function
+var refreshTimer = function(){
+  var time = audio.currentTime;
+  timer2.textContent = time;
+  if(!cutFlag){
+    timer.textContent = time;
   }
 };
+refreshTimer();
+var interval = setInterval(refreshTimer, 100);
 
-actualizarTimer();
-var intervalo = setInterval(actualizarTimer, 100);
-
-
-botonInicio.onclick = function() {
-  flagCorte = 1;
-  numero1 = timer.textContent - desfasajevar;
+//Set start cutting time.
+startCutButton.onclick = function() {
+  cutFlag = 1;
+  startTime = timer.textContent - shiftTime;
 };
 
-botonplay.onclick = function() {
-  desfasajevar = audio.currentTime;
-  desfasaje.textContent = desfasajevar;
+//Set shift
+playButton.onclick = function() {
+  shiftTime = audio.currentTime;
+  shift.textContent = shiftTime;
 
 }
 
-botonTerminado.onclick = function(){
-  if(etiqueta.value.length > 0){
-    numero2 = timer2.textContent - desfasajevar;
-    temp = etiqueta.value + " " + numero1 + " " + numero2 + "\n";
-    contenidoDeArchivo = contenidoDeArchivo + temp;
-    elem.href = "data:application/octet-stream," + encodeURIComponent(contenidoDeArchivo);
-    flagCorte = 0;
+//Save data from this cut into file.
+saveButton.onclick = function(){
+  if(label.value.length > 0){
+    endTime = timer2.textContent - shiftTime;
+    temp = label.value + " " + startTime + " " + endTime + "\n";
+    fileContent = fileContent + temp;
+    elem.href = "data:application/octet-stream," + encodeURIComponent(fileContent);
+    cutFlag = 0;
   } else {
-    window.alert("No pusiste etiqueta");
+    window.alert("No label");
   }
 };
 
-avanzar.onclick = function(){
+//Forwarding on time
+forwardButton.onclick = function(){
   audio.currentTime = audio.currentTime + 0.5;
 };
 
-retroceder.onclick = function(){
+//Backwarding on time
+backwardButton.onclick = function(){
   audio.currentTime = audio.currentTime - 0.5;
 };
 
-cargar.onclick = function(){
-    source.src = archivo.files[0].name;
+//Upload audio file
+uploadButton.onclick = function(){
+    source.src = file.files[0].name;
     audio.load();
   }
 
