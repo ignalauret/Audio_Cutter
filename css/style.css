@@ -15,15 +15,15 @@
 }
 
 body {
-  background-color: #019875 ;
+  background-image:url(background.png);
+  background-save: no-save;
 }
 
 #wrapper {
-  position: absolute;
-  top: 50%;
-  margin-top: -270px;
-  left: 0;
-  width: 100%;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
 }
 
 #container {
